@@ -1,0 +1,14 @@
+---
+description: Backend API and state machine conventions
+globs: backend/**
+alwaysApply: false
+---
+
+# Backend Conventions
+
+- Routes live in `backend/src/routes/`. Business logic in `backend/src/services/`.
+- Use `express-validator` for request validation; return 400 with `{ errors: [...] }`.
+- Business rule violations (invalid status transition) return 422 with `{ error: "message" }`.
+- Database access via `backend/src/db/database.js` singleton.
+- State transitions: call `canTransition(from, to)` and `getAllowedTransitions(status)` from `statusMachine.js`.
+- Integration tests use Supertest against the Express app without starting a separate server process.

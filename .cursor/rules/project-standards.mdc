@@ -1,0 +1,15 @@
+---
+description: Support Ticket Management — global project standards
+alwaysApply: true
+---
+
+# Project Standards
+
+- Stack: React (Vite) frontend, Express backend, SQLite database.
+- API base path: `/api`. Use proper HTTP status codes.
+- Never commit secrets; use `.env` and document variables in `.env.example`.
+- Ticket status changes MUST go through `statusMachine.js` — never update status directly in routes.
+- Valid statuses: Open, In Progress, Resolved, Closed, Cancelled.
+- Valid priorities: Low, Medium, High, Critical.
+- All timestamps in ISO 8601 UTC strings.
+- Prefer small, focused changes. Match existing file structure and naming.

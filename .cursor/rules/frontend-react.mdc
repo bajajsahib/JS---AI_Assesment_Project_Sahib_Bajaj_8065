@@ -1,0 +1,13 @@
+---
+description: React frontend patterns
+globs: frontend/**
+alwaysApply: false
+---
+
+# Frontend Conventions
+
+- Pages in `frontend/src/pages/`, shared components in `frontend/src/components/`.
+- API calls via `frontend/src/api/client.js` — parse errors from `{ error }` or `{ errors }`.
+- Show user-visible error messages from API responses; do not swallow 422 state machine errors.
+- Status transition buttons: only render `getAllowedTransitions(currentStatus)` options.
+- Use React Router for navigation. Keep forms controlled with local state.
